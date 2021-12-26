@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const IMAGE_FILE_PATTERN = /image-*/;
 
-export default async (file) => {
+export default async function handler(file) {
     if (file) {
         if (!file.type.match(IMAGE_FILE_PATTERN)) {
             // Better to use a banner instead of an alert.
