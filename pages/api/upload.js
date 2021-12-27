@@ -1,5 +1,4 @@
 import nextConnect from 'next-connect';
-import path from 'path';
 import multer from 'multer';
 import {FILE_DIR} from './utils';
 
@@ -7,8 +6,7 @@ const upload = multer({
   storage: multer.diskStorage({
     destination: FILE_DIR,
     filename: (req, file, cb) => {
-      const parsedPath = path.parse(file.originalname);
-      cb(null, parsedPath.name + '-' + Date.now() + parsedPath.ext)
+      cb(null, file.originalname)
     },
   }),
 });

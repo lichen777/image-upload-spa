@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install all dependencies:
+
+```bash
+npm i
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -14,9 +20,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/images](http://localhost:3000/api/images). This endpoint can be edited in `pages/api/images.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Notes
+
+The basic UI functionalities and APIs have been completed based on the given UX mockup. Since the UX is simplified, I made several assumptions: 
+
+1. There are finite number of images stored and shown. So pagination is not added to the "List all uploaded images" API design. 
+2. All images can be identified uniquely by their file names, which means there is no duplication of the image file names. To prevent duplication and to show better user interface, I would like to set up a database table to store image metadata, so we can serve an unique id for each image and a more user readable image title.
+3. Loading AND Error states of the image upload and images fetching are simplified due to lack of UX details. With more detials, I'd like to refine those states for better user experience and better error handling. 
+4. Currently upload API only supports single image file upload. If needed, we can change the default behaviour to multiple files upload at once.
 
 ## Learn More
 
